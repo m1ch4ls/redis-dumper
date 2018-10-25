@@ -1,0 +1,51 @@
+{
+  "name": "redis-dumper",
+  "version": "1.0.0",
+  "description": "Dump redis database into redis commands",
+  "keywords": [
+    "redis",
+    "dump",
+    "database",
+    "command line"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,md,scss}\" --write",
+    "lint": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.js\""
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ]
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "author": "Michal Skvely",
+  "main": "./lib/dump.js",
+  "bin": {
+    "redis-dump": "bin/redis-dumper"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ioredis": "^4.2.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "big-list-of-naughty-strings": "=1.0.0",
+    "concat-stream": "=1.6.2",
+    "eslint": "5.7.0",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-plugin-jest": "21.25.1",
+    "eslint-plugin-prettier": "3.0.0",
+    "jest": "23.6.0",
+    "prettier": "1.14.3"
+  }
+}
