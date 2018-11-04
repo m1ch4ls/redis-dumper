@@ -25,7 +25,7 @@
     ]
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "author": "Michal Skvely",
   "main": "./lib/dump.js",
