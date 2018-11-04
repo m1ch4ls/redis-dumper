@@ -25,7 +25,9 @@ const startRedisServer = (port, config = '') =>
     const server = childProcess.spawn(SERVER_BIN, ['-', '--port', port]);
 
     const serverExit = () => {
-      server.kill();
+      if (!server.killed) {
+        server.kill();
+      }
     };
 
     const onClose = () => {
@@ -37,7 +39,7 @@ const startRedisServer = (port, config = '') =>
         server.stdout.removeListener('data', onData);
         server.stdout.removeListener('close', onClose);
 
-        server.on('close', () => {
+        server.on('exit', () => {
           process.removeListener('exit', serverExit);
         });
 
@@ -56,7 +58,7 @@ const startRedisServer = (port, config = '') =>
   });
 
 const stopRedisServer = server => {
-  if (!server) {
+  if (server && !server.killed) {
     server.kill();
   }
 };
