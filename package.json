@@ -17,6 +17,9 @@
     "lint": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.js\""
   },
   "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/node_modules/"
@@ -37,7 +40,8 @@
   "license": "MIT",
   "dependencies": {
     "ioredis": "^4.2.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "pump": "^3.0.0"
   },
   "devDependencies": {
     "big-list-of-naughty-strings": "1.0.0",
